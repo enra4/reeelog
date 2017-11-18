@@ -55,6 +55,8 @@ log.error("http", "missing ssl certs")
 log.info("http", "server listening on port 3090")
 log.trace("http", "54.73.249.176 POST /api/get_thing 400")
 log.trace("http", "184.133.232.60 GET /")
+# debug wont show in logfile
+log.debug("uber debug msg!!")
 log.trace("http", "184.133.232.60 GET /favicon.ico 404")
 log.fatal("app", "spaghetti monster ate us")
 ```

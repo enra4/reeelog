@@ -56,5 +56,11 @@ class Main
 		end
 	end
 
+	def debug(msg)
+		time = Time.now
+		time = "#{Time.new(time.year, time.month, time.day, time.hour, time.minute, time.second)}"
+		puts chalk.white.bgGrey("#{time} debug #{msg}")
+	end
+
 	define_methods(@use_logfile, @filename)
 end
