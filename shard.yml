@@ -1,0 +1,13 @@
+name: reeelog
+version: 0.1.0
+
+dependencies:
+  chalk_box:
+    github: azukiapp/crystal-chalk-box
+
+authors:
+  - enra4 <cudcsb@gmail.com>
+
+crystal: 0.23.1
+
+license: MIT
