@@ -3,7 +3,7 @@
 reeeee
 simple logging utility inspired by [log](https://github.com/nikersify/log)
 
-[!screenshot](screenshot.png)
+![screenshot](screenshot.png)
 
 reeelog.log
 ```sh
