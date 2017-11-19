@@ -33,7 +33,6 @@ Add this to your application's `shard.yml`:
 dependencies:
   reeelog:
     github: enra4/reeelog
-    branch: master
 ```
 
 ## usage
