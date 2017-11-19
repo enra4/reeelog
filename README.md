@@ -1,27 +1,28 @@
 # reeelog
 
 reeeee
+
 simple logging utility inspired by [log](https://github.com/nikersify/log)
 
 ![screenshot](screenshot.png)
 
-reeelog.log
-```sh
-### app started 2017-11-18 22:03:19 +0100
-(2017-11-18 22:03:19) [APP] starting...
-(2017-11-18 22:03:19) [APP] read config.json
-(2017-11-18 22:03:19) [APP] started in development mode
-(2017-11-18 22:03:19) [DB] attempting to connect...
-(2017-11-18 22:03:19) [DB] credentials missing, trying defaults...
-(2017-11-18 22:03:19) [DB] connected!
-(2017-11-18 22:03:19) [HTTP] preparing html cache...
-(2017-11-18 22:03:19) [HTTP] cache ready!
-(2017-11-18 22:03:19) [HTTP] missing ssl certs
-(2017-11-18 22:03:19) [HTTP] server listening on port 3090
-(2017-11-18 22:03:19) [HTTP] 54.73.249.176 POST /api/get_thing 400
-(2017-11-18 22:03:19) [HTTP] 184.133.232.60 GET /
-(2017-11-18 22:03:19) [HTTP] 184.133.232.60 GET /favicon.ico 404
-(2017-11-18 22:03:19) [APP] spaghetti monster ate us
+./logs/foo.log
+```
+### app started 2017-11-19 15:18:09 +0100
+(2017-11-19 15:18:09) [APP] starting...
+(2017-11-19 15:18:09) [APP] read config.json
+(2017-11-19 15:18:09) [APP] started in development mode
+(2017-11-19 15:18:09) [DB] attempting to connect...
+(2017-11-19 15:18:09) [DB] credentials missing, trying defaults...
+(2017-11-19 15:18:09) [DB] connected!
+(2017-11-19 15:18:09) [HTTP] preparing html cache...
+(2017-11-19 15:18:09) [HTTP] cache ready!
+(2017-11-19 15:18:09) [HTTP] missing ssl certs
+(2017-11-19 15:18:09) [HTTP] server listening on port 3090
+(2017-11-19 15:18:09) [HTTP] 54.73.249.176 POST /api/get_thing 400
+(2017-11-19 15:18:09) [HTTP] 184.133.232.60 GET /
+(2017-11-19 15:18:09) [HTTP] 184.133.232.60 GET /favicon.ico 404
+(2017-11-19 15:18:09) [APP] spaghetti monster ate us
 ```
 
 ## installation
@@ -41,8 +42,9 @@ require "reeelog"
 ```
 
 ```crystal
-log = Reeelog.start(true)
-# true because we want to write logs to file(reeelog.log)
+log = Reeelog.start("foo.log")
+# logs will be saved at ./logs/foo.log
+# if you dont want to save logs, simply dont call with an argument
 log.info("app", "starting...")
 log.success("app", "read config.json")
 log.info("app", "started in development mode")
