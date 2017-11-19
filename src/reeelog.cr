@@ -29,9 +29,11 @@ macro define_methods(filename, nofile)
 
 			unless {{nofile}}
 				# find better way to write to file than this?
+				Dir.cd("logs")
 				content = File.read({{filename}})
 				content += "(#{time}) [#{scope.upcase}] #{msg}\n"
 				File.write({{filename}}, content)
+				Dir.cd("..")
 			end
 		end
 	{% end %}
@@ -66,6 +68,7 @@ class Main
 			content = File.read(filename)
 			content += "#{emptyline}### app started #{Time.now}\n"
 			File.write(filename, content)
+			Dir.cd("..")
 		else
 			@filename = ""
 			@nofile = true
