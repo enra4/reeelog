@@ -20,7 +20,12 @@ macro define_methods(filename, nofile)
 		def {{name.id}}(scope, msg)
 			time = Time.now
 			time = "#{Time.new(time.year, time.month, time.day, time.hour, time.minute, time.second)}"
-			puts "#{time} #{chalk.{{colour.id}}(scope)} #{msg}"
+			spacing = ""
+			while spacing.size < (6 - scope.size)
+				spacing = spacing + " "
+			end
+
+			puts "#{time}  #{chalk.{{colour.id}}(scope)}#{spacing} #{msg}"
 
 			unless {{nofile}}
 				# find better way to write to file than this?
@@ -70,7 +75,7 @@ class Main
 	def debug(msg)
 		time = Time.now
 		time = "#{Time.new(time.year, time.month, time.day, time.hour, time.minute, time.second)}"
-		puts chalk.white.bgGrey("#{time} debug #{msg}")
+		puts chalk.white.bgGrey("#{time}  debug  #{msg}")
 	end
 
 	define_methods(@filename, @nofile)
