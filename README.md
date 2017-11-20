@@ -9,20 +9,20 @@ simple logging utility inspired by [log](https://github.com/nikersify/log)
 ./logs/foo.log
 ```
 ### app started 2017-11-19 15:18:09 +0100
-(2017-11-19 15:18:09) [APP] starting...
-(2017-11-19 15:18:09) [APP] read config.json
-(2017-11-19 15:18:09) [APP] started in development mode
-(2017-11-19 15:18:09) [DB] attempting to connect...
-(2017-11-19 15:18:09) [DB] credentials missing, trying defaults...
-(2017-11-19 15:18:09) [DB] connected!
-(2017-11-19 15:18:09) [HTTP] preparing html cache...
-(2017-11-19 15:18:09) [HTTP] cache ready!
-(2017-11-19 15:18:09) [HTTP] missing ssl certs
-(2017-11-19 15:18:09) [HTTP] server listening on port 3090
-(2017-11-19 15:18:09) [HTTP] 54.73.249.176 POST /api/get_thing 400
-(2017-11-19 15:18:09) [HTTP] 184.133.232.60 GET /
-(2017-11-19 15:18:09) [HTTP] 184.133.232.60 GET /favicon.ico 404
-(2017-11-19 15:18:09) [APP] spaghetti monster ate us
+(2017-11-19 15:18:09) [INFO] [APP] starting...
+(2017-11-19 15:18:09) [SUCCESS] [APP] read config.json
+(2017-11-19 15:18:09) [INFO] [APP] started in development mode
+(2017-11-19 15:18:09) [INFO] [DB] attempting to connect...
+(2017-11-19 15:18:09) [WARN] [DB] credentials missing, trying defaults...
+(2017-11-19 15:18:09) [SUCCESS] [DB] connected!
+(2017-11-19 15:18:09) [INFO] [HTTP] preparing html cache...
+(2017-11-19 15:18:09) [SUCCESS] [HTTP] cache ready!
+(2017-11-19 15:18:09) [ERROR] [HTTP] missing ssl certs
+(2017-11-19 15:18:09) [INFO] [HTTP] server listening on port 3090
+(2017-11-19 15:18:09) [TRACE] [HTTP] 54.73.249.176 POST /api/get_thing 400
+(2017-11-19 15:18:09) [TRACE] [HTTP] 184.133.232.60 GET /
+(2017-11-19 15:18:09) [TRACE] [HTTP] 184.133.232.60 GET /favicon.ico 404
+(2017-11-19 15:18:09) [FATAL] [APP] spaghetti monster ate us
 ```
 
 ## installation

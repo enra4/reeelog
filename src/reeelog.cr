@@ -31,7 +31,7 @@ macro define_methods(filename, nofile)
 				# find better way to write to file than this?
 				Dir.cd("logs")
 				content = File.read({{filename}})
-				content += "(#{time}) [#{scope.upcase}] #{msg}\n"
+				content += "(#{time}) [#{{{name}}.upcase}] [#{scope.upcase}] #{msg}\n"
 				File.write({{filename}}, content)
 				Dir.cd("..")
 			end
