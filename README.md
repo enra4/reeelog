@@ -1,5 +1,7 @@
 # reeelog
 
+[![build](https://travis-ci.org/enra4/reeelog.svg?branch=master)](https://travis-ci.org/enra4/reeelog)
+
 reeeee
 
 simple logging utility inspired by [log](https://github.com/nikersify/log)
