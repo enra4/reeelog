@@ -1,5 +1,5 @@
 require "./reeelog/*"
-require "chalk_box"
+require "colorize"
 
 module Reeelog
 	def self.start(filename : (String | Nil) = nil)
@@ -9,12 +9,12 @@ end
 
 macro define_methods(filename, nofile)
 	{% hash = {
-		"error" => "red",
-		"fatal" => "bgRed",
-		"warn" => "yellow",
-		"trace" => "white",
-		"info" => "blue",
-		"success" => "green"
+		"error" => :red,
+		"fatal" => :red,
+		"warn" => :yellow,
+		"trace" => :white,
+		"info" => :blue,
+		"success" => :green
 	} %}
 	{% for name, colour in hash %}
 		def {{name.id}}(scope, msg)
@@ -25,7 +25,11 @@ macro define_methods(filename, nofile)
 				spacing = spacing + " "
 			end
 
-			puts "#{time}  #{chalk.{{colour.id}}(scope)}#{spacing} #{msg}"
+			if {{name}} == "fatal"
+				puts "#{time}  #{scope.colorize({{colour}}).mode(:reverse)}#{spacing} #{msg}"
+			else
+				puts "#{time}  #{scope.colorize({{colour}})}#{spacing} #{msg}"
+			end
 
 			unless {{nofile}}
 				# find better way to write to file than this?
@@ -40,8 +44,6 @@ macro define_methods(filename, nofile)
 end
 
 class Main
-	include ChalkBox
-
 	# only need one property
 	# but unions seems to act weird on properties?
 	@filename : String
@@ -75,10 +77,11 @@ class Main
 		end
 	end
 
+	# debug doesnt log to file
 	def debug(msg)
 		time = Time.now
 		time = "#{Time.new(time.year, time.month, time.day, time.hour, time.minute, time.second)}"
-		puts chalk.white.bgGrey("#{time}  debug  #{msg}")
+		puts "#{time}  debug  #{msg}".colorize(:light_gray).mode(:reverse)
 	end
 
 	define_methods(@filename, @nofile)

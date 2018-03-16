@@ -1,10 +1,6 @@
 name: reeelog
 version: 1.0.0
 
-dependencies:
-  chalk_box:
-    github: azukiapp/crystal-chalk-box
-
 authors:
   - enra4 <cudcsb@gmail.com>
 
